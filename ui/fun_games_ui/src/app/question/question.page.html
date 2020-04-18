@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>question</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let url of question?.word_urls; index as position">
+        <ion-img [src]="url"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="onShowAnswerClick()" color="primary"
+    >Show Answer</ion-button
+  >
+
+  <ion-item *ngIf="showAnswer">
+    <ion-img [src]="question?.answer_url"></ion-img>
+    <ion-label>
+      {{question?.actual_word}}
+    </ion-label>
+  </ion-item>
+</ion-content>
